@@ -45,4 +45,10 @@ window.collection = [
 	'Benevocats',
 	'Class Act',
 	'Original',
+	'Mona the Rivetertocat',
+	'Mona Lovelace',
+	'Bewitchedtocat',
+	'Gracehoppertocat',
+	'Grim Repo',
+	'Octobi Wan Catnobi',
 ]
