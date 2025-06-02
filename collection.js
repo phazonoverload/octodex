@@ -51,4 +51,6 @@ window.collection = [
 	'Gracehoppertocat',
 	'Grim Repo',
 	'Octobi Wan Catnobi',
+	'Securitocat',
+	'Securityknightocat'
 ]
