@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Image Gallery - Kevin's Octodex</title>
+		<style>
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 20px;
+				background: #f6f8fa;
+			}
+
+			nav {
+				margin-bottom: 20px;
+			}
+
+			nav a {
+				color: #0366d6;
+				text-decoration: none;
+				font-size: 16px;
+			}
+
+			nav a:hover {
+				text-decoration: underline;
+			}
+
+			.gallery {
+				columns: 4 250px;
+				column-gap: 20px;
+			}
+
+			.gallery-item {
+				break-inside: avoid;
+				margin-bottom: 20px;
+				border: 1px solid #e1e4e8;
+				border-radius: 6px;
+				background: white;
+				padding: 15px;
+				transition: transform 0.2s;
+				position: relative;
+			}
+
+			.gallery-item:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+			}
+
+			.gallery-item img {
+				width: 100%;
+				height: auto;
+				display: block;
+				border-radius: 3px;
+			}
+
+			.gallery-item .caption {
+				margin-top: 10px;
+				font-size: 1rem;
+				color: #24292e;
+				font-weight: 600;
+				margin-bottom: 0;
+			}
+
+			@media (max-width: 600px) {
+				.gallery {
+					columns: 1;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<a href="index.html">← Back to Collection</a>
+		</nav>
+		<div id="app">
+			<div class="gallery">
+				<div v-for="image in images" :key="image.name" class="gallery-item">
+					<img :src="image.path" :alt="image.name" />
+					<h2 class="caption">{{ image.name }}</h2>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<script>
+			const { createApp } = Vue
+
+			createApp({
+				data() {
+					return {
+						images: [],
+					}
+				},
+				mounted() {
+					// Get all images from the img directory
+					this.images = [
+						{ name: 'Astronaut', path: 'img/astronaut.jpeg' },
+						{ name: 'Commit Cap', path: 'img/commit-cap.jpeg' },
+						{ name: 'Dragon Riding', path: 'img/dragon-riding.jpeg' },
+						{ name: 'Education', path: 'img/education.jpeg' },
+						{ name: 'Hubot Car', path: 'img/hubot-car.jpeg' },
+						{ name: 'Phoenix', path: 'img/pheonix.jpeg' },
+						{ name: 'Punk', path: 'img/punk.jpeg' },
+					]
+				},
+			}).mount('#app')
+		</script>
+	</body>
+</html>
